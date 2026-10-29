@@ -1,0 +1,12 @@
+name: Hello World
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This will fail
+        run: exit 1
