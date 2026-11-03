@@ -1,0 +1,13 @@
+name: Partial failure test
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        region: [east, central, west]
+    steps:
+      - name: Deploy to ${{ matrix.region }}
+        run: |
+          echo "Deploying to ${{ matrix.region }}"
+          if [ "${{ matrix.region }}" = "central" ]; then exit 1; fi
